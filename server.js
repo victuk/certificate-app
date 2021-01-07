@@ -32,7 +32,7 @@ app.use('/posts', require('./users/user.posts'));
 app.use(errorHandler);
 
 // start server process.env.NODE_ENV === 'production' ? 80 :
-const port =  4000;
+const port = process.env.PORT || 4000;
 const server = app.listen(port, function () {
     console.log('Server listening on port ' + port);
 });
