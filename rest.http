@@ -1,11 +1,9 @@
-GET  http://127.0.0.1:4000/users/getuser/singleuser?user=5fe8121337d5a630e7ebb442
+POST  https://cert-validation-website.herokuapp.com/users/newAdmin
 content-type: application/json
 
 {
   "email": "admin@admin.com",
   "password": "administer",
   "fname": "victor",
-  "lname": "red",
-  "userInfo": {"fname":"vred", "lname": "uk", "gender": "male", "lga": "Calabar South"},
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZTdlYzQxNThlN2JkMGU0YWUwZjAwMyIsImlhdCI6MTYwOTM0NDk2OX0.qC7gxU8Gd6ziSTF2dVRmGLsr-r9-hzIeLqucV_b8d9k"
+  "lname": "red"
 }
