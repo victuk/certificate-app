@@ -1,0 +1,80 @@
+#certificate-name{
+    position: absolute;
+    left: 100px;
+    top: 64px;
+    font-size: 10px;
+}
+
+#certiii{
+    width: 100%;
+    height: auto;
+}
+
+@media screen and (min-width:321px) and (max-width:356px) {
+    #certificate-name{
+        position: absolute;
+        left: 100px;
+        top: 64px;
+        font-size: 10px;
+    }
+    
+    
+
+}
+
+@media screen and (min-width:357px) and (max-width:424px) {
+    #certificate-name{
+        position: absolute;
+        left: 123px;
+        top: 80px;
+        font-size: 10px;
+    }
+    
+}
+
+@media screen and (min-width:425px) and (max-width:768px) {
+    #certificate-name{
+        position: absolute;
+        left: 148px;
+        top: 94px;
+        font-size: 10px;
+    }
+    
+}
+
+@media screen and (min-width:768px) and (max-width:1024px) {
+    #certificate-name{
+        position: absolute;
+        left: 254px;
+        top: 179px;
+        font-size: 20px;
+    }
+    
+}
+
+@media screen and (min-width:1024px) and (max-width:1439px) {
+    #certificate-name{
+        position: absolute;
+        left: 422px;
+        top: 306px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width:1440px) and (max-width:2559px) {
+    #certificate-name{
+        position: absolute;
+        left: 411px;
+        top: 305px;
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width:2560px) {
+    #certificate-name{
+        position: absolute;
+        left: 422px;
+        top: 300px;
+        font-size: 30px;
+    }
+}

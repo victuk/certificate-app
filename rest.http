@@ -1,0 +1,10 @@
+POST  http://127.0.0.1:4000/users/nonsense
+content-type: application/json
+
+{
+  "email": "admin@admin.com",
+  "password": "administer",
+  "fname": "victor",
+  "lname": "red",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZTdlYzQxNThlN2JkMGU0YWUwZjAwMyIsImlhdCI6MTYwOTM0NDk2OX0.qC7gxU8Gd6ziSTF2dVRmGLsr-r9-hzIeLqucV_b8d9k"
+}
