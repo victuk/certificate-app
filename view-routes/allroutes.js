@@ -16,6 +16,11 @@ router.get('/login', function (req, res) {
     //res.render('testlogin');
 })
 
+router.get('/certwpic', function (req, res) {
+    // res.render('log-in');
+    res.render('testlogin');
+})
+
 router.get('/dashboard', function (req, res) {
     res.render('article-details');
 });

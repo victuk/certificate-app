@@ -1,9 +1,17 @@
-POST  https://cert-validation-website.herokuapp.com/users/newAdmin
+POST  http://127.0.0.1:4000/users/add-with-pic
 content-type: application/json
 
 {
   "email": "admin@admin.com",
   "password": "administer",
   "fname": "victor",
-  "lname": "red"
+  "lname": "red",
+  "userInfo": {
+    "fname": "Victor",
+    "lname": "Ukok",
+    "othernames": "Peter",
+    "email": "ukokjnr@gmail.com",
+    "certPic": "public/images/cert.png"
+  }
+  
 }

@@ -6,12 +6,58 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="email" name="" id="lemail2">
+    <input type="text" name="" id="fname" placeholder="First name">
+    <input type="text" name="" id="lname" placeholder="Last Name">
+    <input type="text" name="" id="otnames" placeholder="Other Names">
+    <input type="email" name="" id="lemail2" placeholder="Email">
     <br>
-    <input type="password" name="" id="lpassword2">
+    <input type="file" name="" id="thefile">
     <br>
     <button onclick="callme()">Login</button>
 
-    <script src="../static/js/admin-handle-script.js"></script>
+
+    <img id="imgg">
+
+    <script> 
+    const firstName =document.getElementById('fname')
+        const lastName = document.getElementById('lname')
+        const otherNames = document.getElementById('otnames')
+        const emailAddress = document.getElementById('lemail2')
+        const theFile = document.getElementById('thefile')
+        
+
+        function showImgg() {
+            fetch('/users/getimg', {
+                method: 'GET',
+                "content-type": "application/json"
+            }).then(res => res.json())
+            .then(x => {
+                console.log(x[0].certificate.data.data)
+                const showImage = document.getElementById('imgg')
+                showImage.src = `data:image/png;base64,${x[0].certificate.data.data}`;
+            })
+            .catch(error => console.log(error))
+        }
+        showImgg();
+
+    function callme() {
+        
+        
+        
+    const formdata = new FormData();
+formdata.append('userInfo.certPic', theFile.files[0]);
+formdata.append('userInfo.fname', firstName);
+formdata.append('userInfo.lname', lastName);
+formdata.append('userInfo.email', emailAddress);
+
+        fetch('/users/add-with-pic', {
+            method: 'POST',
+            body: formdata
+        }).then( data => data.json())
+        .then(x => {
+            console.log(x)
+        }).catch(error => {console.log(error)})
+    }
+    </script>
 </body>
 </html>

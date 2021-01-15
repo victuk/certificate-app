@@ -48,14 +48,14 @@
     
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" style="background-color: #5f4def;">
         <div class="container">
 
             <!-- Text Logo - Use this if you don't have a graphic logo -->
             <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="/"><img src="../static/images/logo.svg" alt="alternative"></a> 
+            <a class="navbar-brand logo-image" style="text-decoration: none;" href="/">VCert</a> 
             
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -102,33 +102,6 @@
     <!-- end of navigation -->
 
 
-    <!-- Header -->
-    <header id="header" class="ex-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Welcome</h1>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </header> <!-- end of ex-header -->
-    <!-- end of header -->
-
-
-    <!-- Breadcrumbs -->
-    <div class="ex-basic-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumbs">
-                        <a href="index.html">Home</a><i class="fa fa-angle-double-right"></i><span>Longer Project Title Should Go Here</span>
-                    </div> <!-- end of breadcrumbs -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of ex-basic-1 -->
-    <!-- end of breadcrumbs -->
-
 
     <!-- Privacy Content -->
     <div class="ex-basic-2">
@@ -145,37 +118,28 @@
     <!-- end of privacy content -->
 
 
-    <div class="container">
+    <div class="container my-5">
         <div class="row">
             <div class="col-lg-12">
                 <div class="col-sm-12 text-center" id="theCert">
                     <div id="certificate-name"></div>
+                    <div id="certificate-id"></div>
                     <div><img id="certiii" src="../static/images/cert.png" alt=""></div>
                 </div>
             </div> <!-- end of col-->
         </div> <!-- end of row -->
+        <div id="canvass"></div>
+    <div id="downl"></div>
     </div> <!-- end of container -->
 
 
-    <div id="canvass"></div>
-    <div id="downl"></div>
-    <!-- Breadcrumbs -->
-    <div class="ex-basic-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumbs">
-                        <a href="index.html">Home</a><i class="fa fa-angle-double-right"></i><span>Longer Project Title Should Go Here</span>
-                    </div> <!-- end of breadcrumbs -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of ex-basic-1 -->
-    <!-- end of breadcrumbs -->
+    
+
+
 
     
     <!-- Footer -->
-    <svg class="ex-footer-frame" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 79"><defs><style>.cls-2{fill:#5f4def;}</style></defs><title>footer-frame</title><path class="cls-2" d="M0,72.427C143,12.138,255.5,4.577,328.644,7.943c147.721,6.8,183.881,60.242,320.83,53.737,143-6.793,167.826-68.128,293-60.9,109.095,6.3,115.68,54.364,225.251,57.319,113.58,3.064,138.8-47.711,251.189-41.8,104.012,5.474,109.713,50.4,197.369,46.572,89.549-3.91,124.375-52.563,227.622-50.155A338.646,338.646,0,0,1,1920,23.467V79.75H0V72.427Z" transform="translate(0 -0.188)"/></svg>
+    <svg class="ex-footer-frame mt-5" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 79"><defs><style>.cls-2{fill:#5f4def;}</style></defs><title>footer-frame</title><path class="cls-2" d="M0,72.427C143,12.138,255.5,4.577,328.644,7.943c147.721,6.8,183.881,60.242,320.83,53.737,143-6.793,167.826-68.128,293-60.9,109.095,6.3,115.68,54.364,225.251,57.319,113.58,3.064,138.8-47.711,251.189-41.8,104.012,5.474,109.713,50.4,197.369,46.572,89.549-3.91,124.375-52.563,227.622-50.155A338.646,338.646,0,0,1,1920,23.467V79.75H0V72.427Z" transform="translate(0 -0.188)"/></svg>
     <div class="footer">
         <div class="container">
             <div class="row">
@@ -249,7 +213,7 @@
         //canvasAppend.appendChild(img);
         downCert.innerHTML =`
         <div class="container text-center">
-        <a href="${img.src}" class="btn btn-primary my-3" download>Download Certificate</a>
+        <a href="${img.src}" class="btn btn-primary my-3" style="text-decoration: none;" download>Download Certificate</a>
         </div>`;
     })
     .catch(function (error) {
@@ -259,6 +223,7 @@
     </script>
     <script>
     const certName = document.getElementById('certificate-name');
+    const certID = document.getElementById('certificate-id');
     const displayStudent = document.getElementById('singleStudent');
     const searchedUser = location.search.substring(6);
     fetch('/users/getuser/singleuser?user=' + searchedUser, {
@@ -279,6 +244,7 @@
         <button class="btn btn-danger m-3" onclick="deleteStudent('${user._id}')">Delete ${user.first_name} ${user.last_name}'s record</button>
         `;
         certName.innerHTML = `<div>${user.last_name}, ${user.first_name} ${user.other_names}</div>`;
+        certID.innerText = `${user._id}`
     }).catch(error => {
         console.log("There's and error somewhere" + error)
     });
