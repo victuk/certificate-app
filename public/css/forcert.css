@@ -5,8 +5,9 @@
     font-size: 10px;
 }
 
-.certificate-id{
+#certificate-id{
     position: absolute;
+    
 }
 
 #certiii{
@@ -59,9 +60,15 @@
 @media screen and (min-width:1024px) and (max-width:1439px) {
     #certificate-name{
         position: absolute;
-        left: 422px;
-        top: 306px;
+        left: 460px;
+        top: 310px;
         font-size: 20px;
+    }
+    #certificate-id{
+        position: absolute;
+        left: 100px;
+        top: 64px;
+        font-size: 10px;
     }
 }
 

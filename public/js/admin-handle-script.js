@@ -46,9 +46,9 @@ fetch('/users/all-students', {
 }).then(function(res) {
     let showStudents = document.getElementById('studentList');
     res.forEach(student => {
-        showStudents.innerHTML += `<div class='col-md-12 p-2 my-3' style="border: 1px solid #007bff; border-radius: 10px;">
+        showStudents.innerHTML += `<div class='col-md-12 p-2 my-3' style="background-color: #FFEDF6; border-radius: 10px;">
         <button class="btn btn-primary" onclick="editStudent('${student._id}')">Edit</button>
-            <button class="btn btn-link" onclick="viewStudent('${student._id}')">${student.first_name} ${student.last_name} ${student.gender}</button>
+            <button class="btn btn-link" onclick="viewStudent('${student._id}')">${student.first_name} ${student.last_name} <div style="color:grey; display: inline-block; font-size: small;">${student.gender}</div> </button>
             
         </div>`; 
         console.log(student);

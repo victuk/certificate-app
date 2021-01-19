@@ -32,7 +32,7 @@
                 "content-type": "application/json"
             }).then(res => res.json())
             .then(x => {
-                console.log(x[0].certificate.data.data)
+                console.log(typeof(x[0].certificate.data.data))
                 const showImage = document.getElementById('imgg')
                 showImage.src = `data:image/png;base64,${x[0].certificate.data.data}`;
             })

@@ -11,6 +11,9 @@ const adminModel = require('../models/admin-model');
 const userModel = require('../models/user-model');
 const userWithPicture = require('../models/picture-model')
 const bcrypt = require('bcryptjs');
+
+var multer = require('multer');
+
 const fs = require('fs');
 require('dotenv').config({path: __dirname + '/.env'})
 
@@ -102,23 +105,26 @@ router.get('/getuser/singleuser', function(req, res) {
         res.send(user)
     });
 });
+ 
+var upload = multer({ dest: 'upload/'});
 
-router.post('/add-with-pic', function(req, res) {
-    // return res.send(req.body.userInfo.certPic);
+router.post('/add-with-pic', upload.single('userInfo.certPic'), function(req, res) {
+    // return res.send(req.file);
     const newUserWithPic = new userWithPicture({
         first_name: req.body.userInfo.fname,
         other_names: req.body.userInfo.othernames,
         last_name: req.body.userInfo.lname,
         email: req.body.userInfo.email,
         certificate: {
-            data: fs.readFileSync(req.body.userInfo.certPic),
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
             contentType: 'image/png'
         }
     })
     newUserWithPic.save()
     .then(res.status(200).send('Successful'))
     .catch(err => {
-        res.send(err)
+        res.send(err);
+        // console.log(err)
     });
 });
 

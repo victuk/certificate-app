@@ -6,3 +6,8 @@ function checkLogin() {
 }
 
 checkLogin();
+
+function logout() {
+    localStorage.removeItem('token');
+    location.replace('/login')
+}

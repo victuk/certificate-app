@@ -64,36 +64,17 @@
             <!-- end of mobile menu toggle button -->
 
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="/dashboard">HOME<span class="sr-only">(current)</span></a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="/addcertificate">ADD NEW CERTIFICATE <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" href="/dashboard">VIEW STUDENTS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" href="/#details">DETAILS</a>
-                    </li>
 
-                    <!-- Dropdown Menu -->          
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle page-scroll" href="/#video" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">VIDEO</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="article-details.html"><span class="item-text">ARTICLE DETAILS</span></a>
-                            <div class="dropdown-items-divide-hr"></div>
-                            <a class="dropdown-item" href="terms-conditions.html"><span class="item-text">TERMS CONDITIONS</span></a>
-                            <div class="dropdown-items-divide-hr"></div>
-                            <a class="dropdown-item" href="privacy-policy.html"><span class="item-text">PRIVACY POLICY</span></a>
-                        </div>
-                    </li>
-                    <!-- end of dropdown menu -->
-
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" href="index.html#pricing">PRICING</a>
-                    </li>
                 </ul>
                 <span class="nav-item">
-                    <a class="btn-outline-sm" href="log-in.html">LOG IN</a>
+                    <button class="btn-outline-sm" onclick="logout()">LOG OUT</button>
                 </span>
             </div>
         </div> <!-- end of container -->
@@ -118,11 +99,11 @@
 
 
     <!-- Privacy Content -->
-    <div class="ex-basic-2">
+    <div class="py-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="col-sm-12 p-3 m-3">Student list</div>
+                    <div class="col-sm-12 p-3 m-3 display-4">Student list</div>
                     <div class="col-sm-12" id="studentList">
 
                     </div>
@@ -141,7 +122,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="footer-col first">
-                        <h4>About Tivo</h4>
+                        <h4>About VCert</h4>
                         <p class="p-small">We're passionate about offering some of the best business growth services for start more words</p>
                     </div>
                 </div> <!-- end of col -->
@@ -166,11 +147,11 @@
                         <ul class="list-unstyled li-space-lg p-small">
                             <li class="media">
                                 <i class="fas fa-map-marker-alt"></i>
-                                <div class="media-body">22 Innovative, San Francisco, CA 94043, US</div>
+                                <div class="media-body">Ikot Udota, Akwa Ibom.</div>
                             </li>
                             <li class="media">
                                 <i class="fas fa-envelope"></i>
-                                <div class="media-body"><a class="white" href="mailto:contact@Tivo.com">contact@Tivo.com</a> <i class="fas fa-globe"></i><a class="white" href="#your-link">www.Tivo.com</a></div>
+                                <div class="media-body"><a class="white" href="mailto:victorp3tr@gmail.com">victorp3tr@gmail.com</a><br><i class="fas fa-globe"></i><a class="white" href="https://vred.netlify.app">Developer Portfolio Website</a></div>
                             </li>
                         </ul>
                     </div> 
