@@ -11,18 +11,21 @@
     <input type="text" name="" id="otnames" placeholder="Other Names">
     <input type="email" name="" id="lemail2" placeholder="Email">
     <br>
-    <input type="file" name="" id="thefile">
+    <input type="file" name="thefile" id="thefile">
     <br>
-    <button onclick="callme()">Login</button>
+    <button onclick="callme()">Show Certificate</button>
 
+    <div id="imgg" style="height: 100%; width: 100%;">
 
-    <img id="imgg">
+    </div>
+
+    <img >
 
     <script> 
-    const firstName =document.getElementById('fname')
-        const lastName = document.getElementById('lname')
-        const otherNames = document.getElementById('otnames')
-        const emailAddress = document.getElementById('lemail2')
+    const firstName =document.getElementById('fname').value
+        const lastName = document.getElementById('lname').value
+        const otherNames = document.getElementById('otnames').value
+        const emailAddress = document.getElementById('lemail2').value
         const theFile = document.getElementById('thefile')
         
 
@@ -32,9 +35,16 @@
                 "content-type": "application/json"
             }).then(res => res.json())
             .then(x => {
-                console.log(typeof(x[0].certificate.data.data))
-                const showImage = document.getElementById('imgg')
-                showImage.src = `data:image/png;base64,${x[0].certificate.data.data}`;
+                x.forEach(data => {
+                    console.log(btoa(data.certificate.data.data))
+                    const showImage = document.getElementById('imgg')
+                    const newimg = document.createElement('img')
+
+                    newimg.src = `data:image/png;17bit,${btoa(data.certificate.data.data)}`;
+                    showImage.appendChild(newimg)
+                })
+                
+                
             })
             .catch(error => console.log(error))
         }
@@ -46,14 +56,14 @@
         
     const formdata = new FormData();
 formdata.append('userInfo.certPic', theFile.files[0]);
+// formdata.append('userInfo.certPic', theFile);
 formdata.append('userInfo.fname', firstName);
 formdata.append('userInfo.lname', lastName);
 formdata.append('userInfo.email', emailAddress);
-
         fetch('/users/add-with-pic', {
             method: 'POST',
             body: formdata
-        }).then( data => data.json())
+        }).then( data => data.text())
         .then(x => {
             console.log(x)
         }).catch(error => {console.log(error)})

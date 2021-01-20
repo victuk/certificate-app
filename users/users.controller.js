@@ -13,8 +13,9 @@ const userWithPicture = require('../models/picture-model')
 const bcrypt = require('bcryptjs');
 
 var multer = require('multer');
+var path = require('path');
+var fs = require('fs');
 
-const fs = require('fs');
 require('dotenv').config({path: __dirname + '/.env'})
 
 
@@ -105,18 +106,26 @@ router.get('/getuser/singleuser', function(req, res) {
         res.send(user)
     });
 });
+
+var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'upload')
+    },
+    filename: (req, file, cb) => {
+        cb(null, 'new-' + Date.now())
+    }
+});
  
-var upload = multer({ dest: 'upload/'});
+var upload = multer({ storage: storage});
 
 router.post('/add-with-pic', upload.single('userInfo.certPic'), function(req, res) {
-    // return res.send(req.file);
     const newUserWithPic = new userWithPicture({
-        first_name: req.body.userInfo.fname,
-        other_names: req.body.userInfo.othernames,
-        last_name: req.body.userInfo.lname,
-        email: req.body.userInfo.email,
+        first_name: req.body['userInfo.fname'],
+        other_names: req.body['userInfo.othernames'],
+        last_name: req.body['userInfo.lname'],
+        email: req.body['userInfo.email'],
         certificate: {
-            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+            data: fs.readFileSync(path.join(__dirname + '/upload/' + req.file.filename)),
             contentType: 'image/png'
         }
     })
